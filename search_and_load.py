@@ -10,14 +10,16 @@ def search(letters, key_letter):
             dict_word_letters = list(word)
             step1 = True
             has_key_letter = False
-
+            keep_checking = True
             for letter in dict_word_letters:
-                if letter not in letters:
-                     step1 = False
-                if letter == key_letter:
-                    has_key_letter = True
-            if step1 and has_key_letter:
-                a.add(word)
+                while keep_checking:
+                    if letter not in letters:
+                        step1 = False
+                        keep_checking = False
+                    if letter == key_letter:
+                        has_key_letter = True
+                if step1 and has_key_letter:
+                    a.add(word)
 
     result_write = open("out.txt","w")
     for word in a:

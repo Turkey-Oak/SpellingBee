@@ -6,11 +6,12 @@ def search(letters, key_letter):
     print(f"Total of {len(word_list)} words found.")
     count = 0
     st = 0
+    st = time.perf_counter()
     for word in word_list:
         count = count + 1
         if len(word) > 3:
             print(f"Checking word {count} of {len(word_list)}. {get_pct(count, len(word_list))}%")
-            st = time.perf_counter()
+
             dict_word_letters = list(word)
             step1 = True
             has_key_letter = False

@@ -1,8 +1,9 @@
 import time
 
-def search(letters, key_letter):
+
+def search(letters, key_letter, wordlist):
     a = set()
-    word_list = load_words()
+    word_list = load_words(wordlist)
     print(f"Total of {len(word_list)} words found.")
     count = 0
     st = 0
@@ -43,7 +44,7 @@ def get_pct(score, max):
     return r
 
 
-def load_words():
-    with open("words.txt") as word_file:
+def load_words(wordlist):
+    with open(wordlist) as word_file:
         valid_words = set(word_file.read().split())
     return valid_words
